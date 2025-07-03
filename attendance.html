@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Attendance View</title>
+  <link rel="stylesheet" href="attendance.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="panel">
+      <h2>Attendance – June 2025</h2>
+      <div class="calendar-grid">
+        <!-- Simulate a calendar block like the ZingHR grid -->
+        <div class="day present"></div>
+        <div class="day present"></div>
+        <div class="day absent"></div>
+        <div class="day late"></div>
+        <div class="day halfday"></div>
+        <!-- Add 20+ more blocks -->
+        <!-- You can dynamically generate them in JS later -->
+        <div class="day present"></div>
+        <div class="day present"></div>
+        <div class="day absent"></div>
+      </div>
+
+      <p><strong>3.0</strong> Absents This Month</p>
+
+      <h3>Leave Trend</h3>
+      <!-- <canvas id="leaveTrendChart"></canvas> -->
+      <canvas id="leaveTrendChart" width="20" height="20"></canvas>
+
+      <h3>Leaves Heat Map</h3>
+      <div class="heatmap">
+        <span class="daybox mon">M</span>
+        <span class="daybox tue">T</span>
+        <span class="daybox wed">W</span>
+        <span class="daybox thu">T</span>
+        <span class="daybox fri">F</span>
+        <span class="daybox sat">S</span>
+        <span class="daybox sun">S</span>
+      </div>
+
+      <h3>Leave Balance</h3>
+      <canvas id="leaveBalanceChart" width="20" height="20"></canvas>
+    </div>
+  </div>
+
+  <script src="attendance.js"></script>
+</body>
+</html>

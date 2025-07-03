@@ -1,0 +1,65 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f5f7fa;
+}
+
+.container {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.panel {
+  /* max-height: 90vh;        Limit height to 90% of screen */
+  /* overflow-y: auto;        Scroll inside panel if too much content */
+  width: 200px;            /* Reduce width if needed */
+  font-size: 13px;         /* Slightly smaller text */
+  padding: 15px;
+
+  background: white;
+  /* padding: 20px; */
+  border-radius: 10px;
+  width: 200px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 16px);
+  gap: 4px;
+  margin-bottom: 10px;
+}
+
+.day {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+}
+
+.present { background-color: #4caf50; }
+.absent { background-color: #f44336; }
+.late { background-color: #ff9800; }
+.halfday { background-color: #2196f3; }
+
+.heatmap {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 15px;
+}
+
+.daybox {
+  padding: 3px 6px;
+  border-radius: 4px;
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.mon { background-color: #fbc02d; }
+.tue { background-color: #4caf50; }
+.wed { background-color: #f44336; }
+.thu { background-color: #009688; }
+.fri { background-color: #e91e63; }
+.sat { background-color: #3f51b5; }
+.sun { background-color: #8e24aa; }
