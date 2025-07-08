@@ -1,0 +1,138 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f7fa;
+}
+
+header {
+  background-color: #4285f4;
+  color: white;
+  padding: 10px 20px;
+  font-size: 20px;
+}
+
+.container {
+  display: flex;
+  padding: 10px;
+  gap: 10px;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+
+.panel {
+  max-height: 90vh;
+  background: white;
+  padding: 10px;
+  border-radius: 8px;
+  flex: 1;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  font-size: 13px;
+}
+
+
+.card {
+  background: #f0f0f0;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+}
+
+.circle {
+  width: 50px;
+  height: 50px;
+  font-size: 12px;
+  border-radius: 50%;
+  background: #e74c3c;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  text-align: left;
+  padding: 6px;
+  border-bottom: 1px solid #ddd;
+}
+
+.approved {
+  color: green;
+}
+.pending {
+  color: orange;
+}
+.rejected {
+  color: red;
+}
+
+
+
+.container1 {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.panel1 {
+  width: 200px;            /* Reduce width if needed */
+  font-size: 13px;         /* Slightly smaller text */
+  padding: 15px;
+
+  background: white;
+  /* padding: 20px; */
+  border-radius: 10px;
+  width: 200px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 16px);
+  gap: 4px;
+  margin-bottom: 10px;
+}
+
+.day {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+}
+
+.present { background-color: #4caf50; }
+.absent { background-color: #f44336; }
+.late { background-color: #ff9800; }
+.halfday { background-color: #2196f3; }
+
+.heatmap {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 15px;
+}
+
+.daybox {
+  padding: 3px 6px;
+  border-radius: 4px;
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.mon { background-color: #fbc02d; }
+.tue { background-color: #4caf50; }
+.wed { background-color: #f44336; }
+.thu { background-color: #009688; }
+.fri { background-color: #e91e63; }
+.sat { background-color: #3f51b5; }
+.sun { background-color: #8e24aa; }

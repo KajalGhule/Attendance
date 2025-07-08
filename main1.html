@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Role-Based Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    :root {
+      --primary: #4b7bec;
+      --bg: #f7faff;
+      --sidebar-start: #cce5ff;
+      --sidebar-end: #e6f0ff;
+      --sidebar-hover: #d0e7ff;
+      --text-dark: #333;
+      --text-light: #555;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text-dark);
+      display: flex;
+      height: 100vh;
+    }
+
+    .sidebar {
+      width: 250px;
+      background: linear-gradient(to bottom, var(--sidebar-start), var(--sidebar-end));
+      padding: 2rem 1rem;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 2px 0 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .sidebar h2 {
+      text-align: center;
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      color: var(--primary);
+    }
+
+    .sidebar ul {
+      list-style: none;
+    }
+
+    .sidebar li {
+      padding: 1rem;
+      margin-bottom: 10px;
+      background: transparent;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+      color: var(--text-dark);
+    }
+
+    .sidebar li:hover,
+    .sidebar li.active {
+      background: var(--sidebar-hover);
+      font-weight: 600;
+    }
+
+    .main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .topbar {
+      background: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .topbar h1 {
+      font-size: 1.5rem;
+      color: var(--primary);
+    }
+
+    .topbar select {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .content {
+      padding: 2rem;
+      flex: 1;
+      overflow-y: auto;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .dashboard-section {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    }
+
+    .dashboard-section h2 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sidebar">
+    <h2 id="roleTitle">Admin</h2>
+    <ul id="navItems"></ul>
+  </div>
+
+  <div class="main">
+    <div class="topbar">
+      <h1>College Dashboard</h1>
+      <label>
+        Role:
+        <select id="roleSelect">
+          <option value="admin">Admin</option>
+          <option value="faculty">Faculty</option>
+          <option value="student">Student</option>
+        </select>
+      </label>
+    </div>
+    <div class="content" id="dashboardContent"></div>
+  </div>
+
+  <script>
+    const roleData = {
+      admin: {
+        Dashboard: "Welcome, Admin! You can manage departments, faculty, and students.",
+        Departments: "Manage college departments here.",
+        Faculty: "View and assign faculty tasks and schedules.",
+        Students: "Manage student records and enrollment.",
+        Reports: "Generate academic and attendance reports."
+      },
+      faculty: {
+        Dashboard: "Welcome, Faculty! Here's your quick overview.",
+        "My Schedule": "See your weekly lecture schedule.",
+        Subjects: "Subjects assigned to you.",
+        Attendance: "Mark and review student attendance."
+      },
+      student: {
+        Dashboard: "Welcome, Student! This is your home screen.",
+        "My Timetable": "Check your daily class schedule.",
+        "My Profile": "Update your profile details.",
+        Attendance: "View your attendance statistics."
+      }
+    };
+
+    function loadContent(role, page) {
+      $('#dashboardContent').html(`
+        <div class="dashboard-section">
+          <h2>${page}</h2>
+          <p>${roleData[role][page]}</p>
+        </div>
+      `);
+    }
+
+    function switchRole(role) {
+      $('#roleTitle').text(role.charAt(0).toUpperCase() + role.slice(1));
+      const $navItems = $('#navItems').empty();
+      const pages = Object.keys(roleData[role]);
+
+      $.each(pages, function(index, page) {
+        const $li = $('<li>').text(page);
+        if (index === 0) $li.addClass('active');
+
+        $li.on('click', function() {
+          $('#navItems li').removeClass('active');
+          $(this).addClass('active');
+          loadContent(role, page);
+        });
+
+        $navItems.append($li);
+      });
+
+      loadContent(role, pages[0]);
+    }
+
+    $(function () {
+      $('#roleSelect').on('change', ()=> {
+        switchRole($(this).val());
+      });
+
+      // Initialize with Admin
+      switchRole('admin');
+    });
+  </script>
+
+</body>
+</html>

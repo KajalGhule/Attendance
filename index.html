@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TNA Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <!-- <header>
+    <h1>TAP - Dashboard</h1>
+  </header> -->
+
+  <div class="container">
+    <!-- Left Panel -->
+    <div class="panel">
+      <h2>Today's Attendance Summary</h2>
+      <div class="card">
+        <div class="circle">6.5<br>Hours</div>
+        <p>In Time: 10:40 AM</p>
+        <p>Out Time: 5:00 PM</p>
+        <p>Deficit Hours: 3</p>
+      </div>
+
+      <h3>Working Hours - June 2025</h3>
+      <p>Average: 7 hrs</p>
+      <p>On Time Arrival: 86%</p>
+
+      <h3>Monthly Summary</h3>
+      <p>Days Worked: 0</p>
+      <p>Absent Days: 0</p>
+    </div>
+
+    <!-- Center Panel -->
+    <!-- <div class="panelCanvas">
+      <h2>Attendance - June 2025</h2>
+      <canvas id="calendarChart" height="120"></canvas>
+      <h3>Leave Trend</h3>
+        <canvas id="leaveTrendChart" width="20" height="20"></canvas>
+      <h3>Leave Balance</h3>
+      <canvas id="leaveBalanceChart" width="20" height="20"></canvas>
+    </div> -->
+
+    <div class="container1">
+    <div class="panel1">
+      <h2>Attendance – June 2025</h2>
+      <div class="calendar-grid">
+        <!-- Simulate a calendar block like the ZingHR grid -->
+        <div class="day present"></div>
+        <div class="day present"></div>
+        <div class="day absent"></div>
+        <div class="day late"></div>
+        <div class="day halfday"></div>
+        <!-- Add 20+ more blocks -->
+        <!-- You can dynamically generate them in JS later -->
+        <div class="day present"></div>
+        <div class="day present"></div>
+        <div class="day absent"></div>
+      </div>
+
+      <p><strong>3.0</strong> Absents This Month</p>
+
+      <h3>Leave Trend</h3>
+      <!-- <canvas id="leaveTrendChart"></canvas> -->
+      <canvas id="leaveTrendChart" width="20" height="20"></canvas>
+
+      <h3>Leaves Heat Map</h3>
+      <div class="heatmap">
+        <span class="daybox mon">M</span>
+        <span class="daybox tue">T</span>
+        <span class="daybox wed">W</span>
+        <span class="daybox thu">T</span>
+        <span class="daybox fri">F</span>
+        <span class="daybox sat">S</span>
+        <span class="daybox sun">S</span>
+      </div>
+
+      <h3>Leave Balance</h3>
+      <canvas id="leaveBalanceChart" width="20" height="20"></canvas>
+    </div>
+  </div>
+
+  
+
+    <!-- Right Panel -->
+    <div class="panel">
+      <h2>Leave History</h2>
+      <table>
+        <thead>
+          <tr><th>Type</th><th>Date</th><th>Days</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Casual Leave</td><td>12 Jan 18</td><td>1</td><td class="approved">Approved</td></tr>
+          <tr><td>Sick Leave</td><td>16 Feb 18</td><td>3</td><td class="pending">Pending</td></tr>
+          <tr><td>Earned Leave</td><td>23 Mar 18</td><td>1</td><td class="approved">Approved</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="attendance.js"></script>
+</body>
+</html>
