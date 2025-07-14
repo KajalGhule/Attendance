@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>jQuery Selectors Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f0f8ff;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    button {
+      margin: 5px;
+      padding: 8px 12px;
+      background-color: #008cba;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #005f73;
+    }
+
+    p, ul {
+      margin-top: 10px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+  <h1 id="main-title">jQuery Selector Demo</h1>
+
+  <p class="description">This is a paragraph with a class.</p>
+  <p>This is another paragraph without a class.</p>
+
+  <button id="hide-btn">Hide Paragraphs</button>
+  <button id="show-btn">Show Paragraphs</button>
+  <button id="color-btn">Change Title Color</button>
+
+  <h3>Click on the list items</h3>
+  <ul>
+    <li class="item">Item 1</li>
+    <li class="item">Item 2</li>
+    <li>Item 3</li>
+  </ul>
+
+  <script>
+    $(document).ready(function () {
+      // ID Selector
+      $("#color-btn").click(function () {
+        $("#main-title").css("color", "blue");
+      });
+
+      // Element Selector
+      $("#hide-btn").click(function () {
+        $("p").hide();
+      });
+
+      $("#show-btn").click(function () {
+        $("p").show();
+      });
+
+      // Class Selector
+      $(".item").click(function () {
+        $(this).css("background-color", "yellow");
+      });
+    });
+  </script>
+
+</body>
+</html>
